@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseSync v2 | Immersive Stadium Intelligence</title>
+    <!-- Google Fonts: Space Grotesk for Headings, Manrope for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Onboarding Overlay -->
+      <div id="onboarding" class="overlay hidden">
+        <div class="onboarding-card glass">
+          <div class="step" id="step-1">
+            <h2>Welcome to PulseSync</h2>
+            <p>Experience the stadium like never before. See where the energy is peaking in real-time.</p>
+            <button class="next-btn premium-btn">Next</button>
+          </div>
+          <div class="step hidden" id="step-2">
+            <h2>The Live Heatmap</h2>
+            <p>Colors represent the crowd's pulse. 🟢 Highly Excited, 🟡 Neutral, 🔴 Bored.</p>
+            <button class="next-btn premium-btn">Got it</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Landing Page -->
+      <section id="landing-page" class="view">
+        <div class="glow-bg"></div>
+        <div class="hero-content">
+          <h1 class="headline">PulseSync</h1>
+          <p class="tagline">The Interactive heartbeat of the stadium.</p>
+          <div class="cta-group">
+            <button id="enter-stadium" class="main-cta">
+              <span class="icon">⚡</span>
+              <span>Sync with Arena</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard View -->
+      <main id="dashboard" class="view hidden">
+        <div id="map-container"></div>
+        
+        <!-- Legend Overlay (Top Right) -->
+        <div class="map-legend glass">
+          <div class="legend-item"><span class="dot high"></span> Excited</div>
+          <div class="legend-item"><span class="dot neutral"></span> Neutral</div>
+          <div class="legend-item"><span class="dot low"></span> Bored</div>
+        </div>
+
+        <!-- Sidebar (Left) -->
+        <aside class="sidebar-v2 glass">
+          <div class="sidebar-header">
+            <span class="live-pill">LIVE</span>
+            <h3>Event Control</h3>
+          </div>
+          
+          <div class="vitals">
+            <div class="vital-card">
+              <label>ATTENDEES</label>
+              <div class="value" id="attendee-count">82,410</div>
+            </div>
+            <div class="vital-card">
+              <label>AVG PULSE</label>
+              <div class="value" id="avg-pulse">84%</div>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Live Feed</h4>
+            <div id="insights-list" class="feed">
+              <!-- Insights injected here -->
+            </div>
+          </div>
+        </aside>
+
+        <!-- Interaction Area (Bottom Center) -->
+        <div class="pulse-controller-container">
+          <div id="pulse-panel" class="glass controller-card">
+            <div class="interaction-header">
+              <p>Energy at <span id="current-section-name">your seat</span>?</p>
+            </div>
+            <div class="emotion-selector">
+              <button class="emotion-node" data-emotion="excited">
+                <span class="emoji">🔥</span>
+                <span class="label">Excited</span>
+              </button>
+              <button class="emotion-node" data-emotion="neutral">
+                <span class="emoji">⚡</span>
+                <span class="label">Neutral</span>
+              </button>
+              <button class="emotion-node" data-emotion="bored">
+                <span class="emoji">🧊</span>
+                <span class="label">Bored</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button id="exit-app" class="exit-btn glass">Exit</button>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
